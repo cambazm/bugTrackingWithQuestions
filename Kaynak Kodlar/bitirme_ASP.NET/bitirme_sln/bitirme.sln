@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "D:\...\bitirme\", "..\..\WebSites\bitirme\", "{FAD3D031-20AB-4BF6-B288-A30F3B2670DF}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.VirtualPath = "/bitirme"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\WebSites\bitirme\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\bitirme\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/bitirme"
+		Release.AspNetCompiler.PhysicalPath = "..\..\WebSites\bitirme\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\bitirme\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1744"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FAD3D031-20AB-4BF6-B288-A30F3B2670DF}.Debug|.NET.ActiveCfg = Debug|.NET
+		{FAD3D031-20AB-4BF6-B288-A30F3B2670DF}.Debug|.NET.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
