@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/kullaniciWS/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://localhost/kullaniciWS/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/kullaniciWS/">
+      <s:element name="giris">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="isim" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sifre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="girisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="girisResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="idGetir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="isim" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="idGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idGetirResult" type="s:unsignedInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="tipGetir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="isim" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="tipGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tipGetirResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="girisSoapIn">
+    <wsdl:part name="parameters" element="tns:giris" />
+  </wsdl:message>
+  <wsdl:message name="girisSoapOut">
+    <wsdl:part name="parameters" element="tns:girisResponse" />
+  </wsdl:message>
+  <wsdl:message name="idGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:idGetir" />
+  </wsdl:message>
+  <wsdl:message name="idGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:idGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="tipGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:tipGetir" />
+  </wsdl:message>
+  <wsdl:message name="tipGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:tipGetirResponse" />
+  </wsdl:message>
+  <wsdl:portType name="kullaniciWSSoap">
+    <wsdl:operation name="giris">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Kullanıcı girişi yapmayı sağlar</wsdl:documentation>
+      <wsdl:input message="tns:girisSoapIn" />
+      <wsdl:output message="tns:girisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="idGetir">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Verilen isimli kulanıcının id'sini getirir</wsdl:documentation>
+      <wsdl:input message="tns:idGetirSoapIn" />
+      <wsdl:output message="tns:idGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="tipGetir">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Verilen isimli kulanıcının tipini getirir</wsdl:documentation>
+      <wsdl:input message="tns:tipGetirSoapIn" />
+      <wsdl:output message="tns:tipGetirSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="kullaniciWSSoap" type="tns:kullaniciWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="giris">
+      <soap:operation soapAction="http://localhost/kullaniciWS/giris" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="idGetir">
+      <soap:operation soapAction="http://localhost/kullaniciWS/idGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tipGetir">
+      <soap:operation soapAction="http://localhost/kullaniciWS/tipGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="kullaniciWSSoap12" type="tns:kullaniciWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="giris">
+      <soap12:operation soapAction="http://localhost/kullaniciWS/giris" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="idGetir">
+      <soap12:operation soapAction="http://localhost/kullaniciWS/idGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tipGetir">
+      <soap12:operation soapAction="http://localhost/kullaniciWS/tipGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="kullaniciWS">
+    <wsdl:port name="kullaniciWSSoap" binding="tns:kullaniciWSSoap">
+      <soap:address location="http://160.75.96.32/1/webServices/kullaniciWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="kullaniciWSSoap12" binding="tns:kullaniciWSSoap12">
+      <soap12:address location="http://160.75.96.32/1/webServices/kullaniciWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

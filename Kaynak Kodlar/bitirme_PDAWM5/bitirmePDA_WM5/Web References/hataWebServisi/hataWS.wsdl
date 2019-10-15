@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/hataWS/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://localhost/hataWS/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/hataWS/">
+      <s:element name="getir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="projeIsmi" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getirResult" type="tns:ArrayOfHataBilgi" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfHataBilgi">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="hataBilgi" nillable="true" type="tns:hataBilgi" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="hataBilgi">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="projeIsmi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="aciklama" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="zaman" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ilkSoru">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="projeIsmi" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ilkSoruResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ilkSoruResult" type="tns:soruBilgi" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="soruBilgi">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:unsignedInt" />
+          <s:element minOccurs="0" maxOccurs="1" name="soru" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="kNot" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="evetId" type="s:unsignedInt" />
+          <s:element minOccurs="1" maxOccurs="1" name="hayirId" type="s:unsignedInt" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="sonraki">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:unsignedInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sonrakiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sonrakiResult" type="tns:soruBilgi" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="gonder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="projeIsmi" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sonSoruId" type="s:unsignedInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="cevap" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="hataAciklama" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="yollayanId" type="s:unsignedInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="gonderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="gonderResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getirSoapIn">
+    <wsdl:part name="parameters" element="tns:getir" />
+  </wsdl:message>
+  <wsdl:message name="getirSoapOut">
+    <wsdl:part name="parameters" element="tns:getirResponse" />
+  </wsdl:message>
+  <wsdl:message name="ilkSoruSoapIn">
+    <wsdl:part name="parameters" element="tns:ilkSoru" />
+  </wsdl:message>
+  <wsdl:message name="ilkSoruSoapOut">
+    <wsdl:part name="parameters" element="tns:ilkSoruResponse" />
+  </wsdl:message>
+  <wsdl:message name="sonrakiSoapIn">
+    <wsdl:part name="parameters" element="tns:sonraki" />
+  </wsdl:message>
+  <wsdl:message name="sonrakiSoapOut">
+    <wsdl:part name="parameters" element="tns:sonrakiResponse" />
+  </wsdl:message>
+  <wsdl:message name="gonderSoapIn">
+    <wsdl:part name="parameters" element="tns:gonder" />
+  </wsdl:message>
+  <wsdl:message name="gonderSoapOut">
+    <wsdl:part name="parameters" element="tns:gonderResponse" />
+  </wsdl:message>
+  <wsdl:portType name="hataWSSoap">
+    <wsdl:operation name="getir">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Girilen projeye ait mevcut çözülmemiş hataları getirir.</wsdl:documentation>
+      <wsdl:input message="tns:getirSoapIn" />
+      <wsdl:output message="tns:getirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ilkSoru">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Girilen projeye ait ilk soruyu getirir.</wsdl:documentation>
+      <wsdl:input message="tns:ilkSoruSoapIn" />
+      <wsdl:output message="tns:ilkSoruSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sonraki">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Verilen id ye sahip soruyu getirir.</wsdl:documentation>
+      <wsdl:input message="tns:sonrakiSoapIn" />
+      <wsdl:output message="tns:sonrakiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="gonder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Hata Gönderme aracı</wsdl:documentation>
+      <wsdl:input message="tns:gonderSoapIn" />
+      <wsdl:output message="tns:gonderSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="hataWSSoap" type="tns:hataWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getir">
+      <soap:operation soapAction="http://localhost/hataWS/getir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ilkSoru">
+      <soap:operation soapAction="http://localhost/hataWS/ilkSoru" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sonraki">
+      <soap:operation soapAction="http://localhost/hataWS/sonraki" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gonder">
+      <soap:operation soapAction="http://localhost/hataWS/gonder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="hataWSSoap12" type="tns:hataWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getir">
+      <soap12:operation soapAction="http://localhost/hataWS/getir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ilkSoru">
+      <soap12:operation soapAction="http://localhost/hataWS/ilkSoru" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sonraki">
+      <soap12:operation soapAction="http://localhost/hataWS/sonraki" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gonder">
+      <soap12:operation soapAction="http://localhost/hataWS/gonder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="hataWS">
+    <wsdl:port name="hataWSSoap" binding="tns:hataWSSoap">
+      <soap:address location="http://160.75.96.32/1/webServices/hataWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="hataWSSoap12" binding="tns:hataWSSoap12">
+      <soap12:address location="http://160.75.96.32/1/webServices/hataWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
