@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MVDData version="1.2">
+    <DesignDocument designVersion="MIDP-2" uidCounter="135">
+        <DesignComponent id="$MobileDevice" typeid="MIDP:$MobileDevice" uid="0"/>
+        <DesignComponent id="$StartPoint" typeid="MIDP:$StartPoint" uid="1">
+            <Property name="targetDisplayable" value="girisFormu"/>
+            <Property name="targetForwardDisplayable"/>
+        </DesignComponent>
+        <DesignComponent id="islemListesi" typeid="MIDP:javax.microedition.lcdui.List" uid="3">
+            <Property name="title" value="STRING:\u0130slem Seciniz"/>
+            <Property name="choiceType" value="IMPLICIT"/>
+            <Property name="selectCommandAction" value="$SelectCommandAction1"/>
+            <Property name="indexBasedSwitch" value="true"/>
+            <ContainerProperty name="commands">
+                <ContainerPropertyItem value="$CommandAction3"/>
+            </ContainerProperty>
+            <ContainerProperty name="elements">
+                <ContainerPropertyItem value="Midp2ListElementDC1"/>
+                <ContainerPropertyItem value="Midp2ListElementDC3"/>
+                <ContainerPropertyItem value="Midp2ListElementDC2"/>
+            </ContainerProperty>
+        </DesignComponent>
+        <DesignComponent id="$SelectCommandAction1" typeid="MIDP:SelectCommandAction" uid="4">
+            <Property name="targetDisplayable"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionOrigin" value="islemListesi"/>
+        </DesignComponent>
+        <DesignComponent id="Midp2ListElementDC1" typeid="MIDP:GROUP-org.netbeans.modules.mvd.model.midp2.Midp2ListElementDC" uid="5">
+            <Property name="string" value="STRING:Projelerin listesine bak"/>
+            <Property name="image"/>
+            <Property name="selected" value="false"/>
+            <Property name="commandAction" value="$SelectCaseCommandAction1"/>
+        </DesignComponent>
+        <DesignComponent id="$SelectCaseCommandAction1" typeid="MIDP:SelectCaseCommandAction" uid="6">
+            <Property name="targetDisplayable" value="bekletmeEkraniListe"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionHolder" value="Midp2ListElementDC1"/>
+        </DesignComponent>
+        <DesignComponent id="Midp2ListElementDC2" typeid="MIDP:GROUP-org.netbeans.modules.mvd.model.midp2.Midp2ListElementDC" uid="7">
+            <Property name="string" value="STRING:Cozulmemis hata sayisini al"/>
+            <Property name="image"/>
+            <Property name="selected" value="false"/>
+            <Property name="commandAction" value="$SelectCaseCommandAction2"/>
+        </DesignComponent>
+        <DesignComponent id="$SelectCaseCommandAction2" typeid="MIDP:SelectCaseCommandAction" uid="8">
+            <Property name="targetDisplayable" value="cozulmemisHataSayisi"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionHolder" value="Midp2ListElementDC2"/>
+        </DesignComponent>
+        <DesignComponent id="Midp2ListElementDC3" typeid="MIDP:GROUP-org.netbeans.modules.mvd.model.midp2.Midp2ListElementDC" uid="9">
+            <Property name="string" value="STRING:Hata gonder"/>
+            <Property name="image"/>
+            <Property name="selected" value="false"/>
+            <Property name="commandAction" value="$SelectCaseCommandAction3"/>
+        </DesignComponent>
+        <DesignComponent id="$SelectCaseCommandAction3" typeid="MIDP:SelectCaseCommandAction" uid="10">
+            <Property name="targetDisplayable" value="hataGonder"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionHolder" value="Midp2ListElementDC3"/>
+        </DesignComponent>
+        <DesignComponent id="backCommand1" typeid="MIDP:javax.microedition.lcdui.Command" uid="12">
+            <Property name="label" value="STRING:Back"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="BACK"/>
+        </DesignComponent>
+        <DesignComponent id="okCommandProjeListele" typeid="MIDP:javax.microedition.lcdui.Command" uid="14">
+            <Property name="label" value="STRING:Ok"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="OK"/>
+        </DesignComponent>
+        <DesignComponent id="exitCommand1" typeid="MIDP:javax.microedition.lcdui.Command" uid="16">
+            <Property name="label" value="STRING:Exit"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="EXIT"/>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction3" typeid="MIDP:CommandAction" uid="17">
+            <Property name="targetDisplayable" value="$MobileDevice"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="exitCommand1"/>
+            <Property name="actionOrigin" value="islemListesi"/>
+        </DesignComponent>
+        <DesignComponent id="bekletmeEkraniListe" typeid="MIDP-2:org.netbeans.microedition.lcdui.WaitScreen" uid="19">
+            <Property name="failureAction" value="$InfoScreenAction2"/>
+            <Property name="text" value="STRING:Sunucudan liste aliniyor, lutfen bekleyiniz..."/>
+            <Property name="nextDisplayableAction" value="$InfoScreenAction1"/>
+            <ContainerProperty name="commands"/>
+        </DesignComponent>
+        <DesignComponent id="$InfoScreenAction1" typeid="MIDP:$InfoScreenAction" uid="20">
+            <Property name="actionType" value="1"/>
+            <Property name="targetDisplayable" value="projeler"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource"/>
+            <Property name="actionOrigin" value="bekletmeEkraniListe"/>
+        </DesignComponent>
+        <DesignComponent id="$InfoScreenAction2" typeid="MIDP:$InfoScreenAction" uid="21">
+            <Property name="actionType" value="2"/>
+            <Property name="targetDisplayable" value="hata"/>
+            <Property name="targetForwardDisplayable" value="islemListesi"/>
+            <Property name="actionSource"/>
+            <Property name="actionOrigin" value="bekletmeEkraniListe"/>
+        </DesignComponent>
+        <DesignComponent id="hata" typeid="MIDP:javax.microedition.lcdui.Alert" uid="22">
+            <ContainerProperty name="commands"/>
+            <Property name="string" value="STRING:&lt;Enter Text&gt;"/>
+            <Property name="timeout" value="-2"/>
+            <Property name="type" value="INFO"/>
+            <Property name="image"/>
+        </DesignComponent>
+        <DesignComponent id="okCommandListeleCikis" typeid="MIDP:javax.microedition.lcdui.Command" uid="25">
+            <Property name="label" value="STRING:Ok"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="OK"/>
+        </DesignComponent>
+        <DesignComponent id="cozulmemisHataSayisi" typeid="MIDP:javax.microedition.lcdui.Form" uid="27">
+            <ContainerProperty name="commands">
+                <ContainerPropertyItem value="$CommandAction5"/>
+                <ContainerPropertyItem value="$CommandAction6"/>
+            </ContainerProperty>
+            <ContainerProperty name="items">
+                <ContainerPropertyItem value="projeIsmiHataSayisi"/>
+            </ContainerProperty>
+        </DesignComponent>
+        <DesignComponent id="backCommand2" typeid="MIDP:javax.microedition.lcdui.Command" uid="28">
+            <Property name="label" value="STRING:Back"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="BACK"/>
+        </DesignComponent>
+        <DesignComponent id="okCommandHataSayisiAl" typeid="MIDP:javax.microedition.lcdui.Command" uid="29">
+            <Property name="label" value="STRING:Ok"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="OK"/>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction5" typeid="MIDP:CommandAction" uid="30">
+            <Property name="targetDisplayable" value="bekletmeEkraniHataSayisi"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="okCommandHataSayisiAl"/>
+            <Property name="actionOrigin" value="cozulmemisHataSayisi"/>
+        </DesignComponent>
+        <DesignComponent id="backCommand3" typeid="MIDP:javax.microedition.lcdui.Command" uid="31">
+            <Property name="label" value="STRING:Back"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="BACK"/>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction6" typeid="MIDP:CommandAction" uid="32">
+            <Property name="targetDisplayable" value="islemListesi"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="backCommand3"/>
+            <Property name="actionOrigin" value="cozulmemisHataSayisi"/>
+        </DesignComponent>
+        <DesignComponent id="hataGonder" typeid="MIDP:javax.microedition.lcdui.Form" uid="33">
+            <ContainerProperty name="commands">
+                <ContainerPropertyItem value="$CommandAction7"/>
+                <ContainerPropertyItem value="$CommandAction8"/>
+            </ContainerProperty>
+            <ContainerProperty name="items">
+                <ContainerPropertyItem value="projeIsmiHataGonder"/>
+            </ContainerProperty>
+        </DesignComponent>
+        <DesignComponent id="backCommand4" typeid="MIDP:javax.microedition.lcdui.Command" uid="34">
+            <Property name="label" value="STRING:Back"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="BACK"/>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction7" typeid="MIDP:CommandAction" uid="35">
+            <Property name="targetDisplayable" value="islemListesi"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="backCommand4"/>
+            <Property name="actionOrigin" value="hataGonder"/>
+        </DesignComponent>
+        <DesignComponent id="okCommandGonder" typeid="MIDP:javax.microedition.lcdui.Command" uid="36">
+            <Property name="label" value="STRING:Ok"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="OK"/>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction8" typeid="MIDP:CommandAction" uid="37">
+            <Property name="targetDisplayable" value="bekletmeEkraniIlkSoru"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="okCommandGonder"/>
+            <Property name="actionOrigin" value="hataGonder"/>
+        </DesignComponent>
+        <DesignComponent id="okCommand5" typeid="MIDP:javax.microedition.lcdui.Command" uid="38">
+            <Property name="label" value="STRING:Ok"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="OK"/>
+        </DesignComponent>
+        <DesignComponent id="okCommand6" typeid="MIDP:javax.microedition.lcdui.Command" uid="39">
+            <Property name="label" value="STRING:Ok"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="OK"/>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction9" typeid="MIDP:CommandAction" uid="40">
+            <Property name="targetDisplayable"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="okCommand6"/>
+            <Property name="actionOrigin" value="islemListesi"/>
+        </DesignComponent>
+        <DesignComponent id="bekletmeEkraniHataSayisi" typeid="MIDP-2:org.netbeans.microedition.lcdui.WaitScreen" uid="41">
+            <Property name="failureAction" value="$InfoScreenAction4"/>
+            <Property name="text" value="STRING:Sunucudan sayi aliniyor, lutfen bekleyiniz..."/>
+            <Property name="nextDisplayableAction" value="$InfoScreenAction3"/>
+            <ContainerProperty name="commands"/>
+        </DesignComponent>
+        <DesignComponent id="$InfoScreenAction3" typeid="MIDP:$InfoScreenAction" uid="42">
+            <Property name="actionType" value="1"/>
+            <Property name="targetDisplayable" value="hataSayisiSonuc"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource"/>
+            <Property name="actionOrigin" value="bekletmeEkraniHataSayisi"/>
+        </DesignComponent>
+        <DesignComponent id="$InfoScreenAction4" typeid="MIDP:$InfoScreenAction" uid="43">
+            <Property name="actionType" value="2"/>
+            <Property name="targetDisplayable" value="hata"/>
+            <Property name="targetForwardDisplayable" value="islemListesi"/>
+            <Property name="actionSource"/>
+            <Property name="actionOrigin" value="bekletmeEkraniHataSayisi"/>
+        </DesignComponent>
+        <DesignComponent id="bekletmeEkraniIlkSoru" typeid="MIDP-2:org.netbeans.microedition.lcdui.WaitScreen" uid="44">
+            <Property name="failureAction" value="$InfoScreenAction6"/>
+            <Property name="text" value="STRING:Sunucuya baglaniliyor, lutfen bekleyiniz..."/>
+            <Property name="nextDisplayableAction" value="$InfoScreenAction5"/>
+            <ContainerProperty name="commands"/>
+        </DesignComponent>
+        <DesignComponent id="$InfoScreenAction5" typeid="MIDP:$InfoScreenAction" uid="45">
+            <Property name="actionType" value="1"/>
+            <Property name="targetDisplayable" value="soruGoster"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource"/>
+            <Property name="actionOrigin" value="bekletmeEkraniIlkSoru"/>
+        </DesignComponent>
+        <DesignComponent id="$InfoScreenAction6" typeid="MIDP:$InfoScreenAction" uid="46">
+            <Property name="actionType" value="2"/>
+            <Property name="targetDisplayable" value="hata"/>
+            <Property name="targetForwardDisplayable" value="islemListesi"/>
+            <Property name="actionSource"/>
+            <Property name="actionOrigin" value="bekletmeEkraniIlkSoru"/>
+        </DesignComponent>
+        <DesignComponent id="projeIsmiHataSayisi" typeid="MIDP:javax.microedition.lcdui.TextField" uid="47">
+            <Property name="label" value="STRING:Proje ismini giriniz:"/>
+            <Property name="string" value="STRING:"/>
+            <Property name="maxSize" value="120"/>
+            <ContainerProperty name="commands"/>
+        </DesignComponent>
+        <DesignComponent id="hataSayisiSonuc" typeid="MIDP:javax.microedition.lcdui.Form" uid="48">
+            <Property name="title" value="STRING:Cozulmemis hata sayisi"/>
+            <ContainerProperty name="commands">
+                <ContainerPropertyItem value="$CommandAction10"/>
+            </ContainerProperty>
+            <ContainerProperty name="items">
+                <ContainerPropertyItem value="hataSayisi"/>
+            </ContainerProperty>
+        </DesignComponent>
+        <DesignComponent id="okCommand1" typeid="MIDP:javax.microedition.lcdui.Command" uid="49">
+            <Property name="label" value="STRING:Ok"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="OK"/>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction10" typeid="MIDP:CommandAction" uid="50">
+            <Property name="targetDisplayable" value="islemListesi"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="okCommand1"/>
+            <Property name="actionOrigin" value="hataSayisiSonuc"/>
+        </DesignComponent>
+        <DesignComponent id="soruGoster" typeid="MIDP:javax.microedition.lcdui.Form" uid="51">
+            <Property name="title" value="STRING:Soru sorma ekrani"/>
+            <ContainerProperty name="commands">
+                <ContainerPropertyItem value="$CommandAction11"/>
+                <ContainerPropertyItem value="$CommandAction12"/>
+                <ContainerPropertyItem value="$CommandAction2"/>
+            </ContainerProperty>
+            <ContainerProperty name="items">
+                <ContainerPropertyItem value="lblSoru"/>
+                <ContainerPropertyItem value="lblNot"/>
+            </ContainerProperty>
+        </DesignComponent>
+        <DesignComponent id="evetCmdItem" typeid="MIDP:javax.microedition.lcdui.Command" uid="52">
+            <Property name="label" value="STRING:Evet"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="ITEM"/>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction11" typeid="MIDP:CommandAction" uid="53">
+            <Property name="targetDisplayable" value="bekletmeEkraniEvetSonraki"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="evetCmdItem"/>
+            <Property name="actionOrigin" value="soruGoster"/>
+        </DesignComponent>
+        <DesignComponent id="hayirCmdItem" typeid="MIDP:javax.microedition.lcdui.Command" uid="54">
+            <Property name="label" value="STRING:Hayir"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="ITEM"/>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction12" typeid="MIDP:CommandAction" uid="55">
+            <Property name="targetDisplayable" value="bekletmeEkraniHayirSonraki"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="hayirCmdItem"/>
+            <Property name="actionOrigin" value="soruGoster"/>
+        </DesignComponent>
+        <DesignComponent id="simpleTableModel1" typeid="MIDP-2:org.netbeans.microedition.lcdui.SimpleTableModel" uid="62"/>
+        <DesignComponent id="okCommand2" typeid="MIDP:javax.microedition.lcdui.Command" uid="63">
+            <Property name="label" value="STRING:Ok"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="OK"/>
+        </DesignComponent>
+        <DesignComponent id="itemCommand3" typeid="MIDP:javax.microedition.lcdui.Command" uid="68">
+            <Property name="label" value="STRING:Item"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="ITEM"/>
+        </DesignComponent>
+        <DesignComponent id="projeler" typeid="MIDP:javax.microedition.lcdui.List" uid="70">
+            <Property name="title" value="STRING:Mevcut projeler"/>
+            <Property name="choiceType" value="IMPLICIT"/>
+            <Property name="selectCommandAction" value="$SelectCommandAction2"/>
+            <Property name="indexBasedSwitch" value="true"/>
+            <ContainerProperty name="commands">
+                <ContainerPropertyItem value="$CommandAction1"/>
+            </ContainerProperty>
+            <ContainerProperty name="elements"/>
+        </DesignComponent>
+        <DesignComponent id="$SelectCommandAction2" typeid="MIDP:SelectCommandAction" uid="71">
+            <Property name="targetDisplayable"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionOrigin" value="projeler"/>
+        </DesignComponent>
+        <DesignComponent id="okCommand3" typeid="MIDP:javax.microedition.lcdui.Command" uid="72">
+            <Property name="label" value="STRING:Ok"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="OK"/>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction1" typeid="MIDP:CommandAction" uid="73">
+            <Property name="targetDisplayable" value="islemListesi"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="okCommand3"/>
+            <Property name="actionOrigin" value="projeler"/>
+        </DesignComponent>
+        <DesignComponent id="hataSayisi" typeid="MIDP:javax.microedition.lcdui.StringItem" uid="74">
+            <Property name="label" value="STRING:"/>
+            <Property name="text" value="STRING:"/>
+            <ContainerProperty name="commands"/>
+        </DesignComponent>
+        <DesignComponent id="exitCommand2" typeid="MIDP:javax.microedition.lcdui.Command" uid="75">
+            <Property name="label" value="STRING:Exit"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="EXIT"/>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction2" typeid="MIDP:CommandAction" uid="76">
+            <Property name="targetDisplayable" value="islemListesi"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="exitCommand2"/>
+            <Property name="actionOrigin" value="soruGoster"/>
+        </DesignComponent>
+        <DesignComponent id="backCommand5" typeid="MIDP:javax.microedition.lcdui.Command" uid="78">
+            <Property name="label" value="STRING:Back"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="BACK"/>
+        </DesignComponent>
+        <DesignComponent id="okCommand4" typeid="MIDP:javax.microedition.lcdui.Command" uid="80">
+            <Property name="label" value="STRING:Ok"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="OK"/>
+        </DesignComponent>
+        <DesignComponent id="projeIsmiHataGonder" typeid="MIDP:javax.microedition.lcdui.TextField" uid="83">
+            <Property name="label" value="STRING:Proje ismini giriniz:"/>
+            <Property name="maxSize" value="120"/>
+            <ContainerProperty name="commands"/>
+        </DesignComponent>
+        <DesignComponent id="lblSoru" typeid="MIDP:javax.microedition.lcdui.StringItem" uid="84">
+            <Property name="label" value="STRING:Soru:"/>
+            <Property name="text" value="STRING:"/>
+            <ContainerProperty name="commands"/>
+        </DesignComponent>
+        <DesignComponent id="lblNot" typeid="MIDP:javax.microedition.lcdui.StringItem" uid="85">
+            <Property name="label" value="STRING:Not:"/>
+            <Property name="text" value="STRING:"/>
+            <ContainerProperty name="commands"/>
+        </DesignComponent>
+        <DesignComponent id="bekletmeEkraniEvetSonraki" typeid="MIDP-2:org.netbeans.microedition.lcdui.WaitScreen" uid="89">
+            <Property name="failureAction" value="$InfoScreenAction8"/>
+            <Property name="nextDisplayableAction" value="$InfoScreenAction7"/>
+            <ContainerProperty name="commands"/>
+        </DesignComponent>
+        <DesignComponent id="$InfoScreenAction7" typeid="MIDP:$InfoScreenAction" uid="90">
+            <Property name="actionType" value="1"/>
+            <Property name="targetDisplayable"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource"/>
+            <Property name="actionOrigin" value="bekletmeEkraniEvetSonraki"/>
+        </DesignComponent>
+        <DesignComponent id="$InfoScreenAction8" typeid="MIDP:$InfoScreenAction" uid="91">
+            <Property name="actionType" value="2"/>
+            <Property name="targetDisplayable" value="hata"/>
+            <Property name="targetForwardDisplayable" value="bekletmeEkraniEvetSonraki"/>
+            <Property name="actionSource"/>
+            <Property name="actionOrigin" value="bekletmeEkraniEvetSonraki"/>
+        </DesignComponent>
+        <DesignComponent id="bekletmeEkraniHayirSonraki" typeid="MIDP-2:org.netbeans.microedition.lcdui.WaitScreen" uid="92">
+            <Property name="failureAction" value="$InfoScreenAction10"/>
+            <Property name="nextDisplayableAction" value="$InfoScreenAction9"/>
+            <ContainerProperty name="commands"/>
+        </DesignComponent>
+        <DesignComponent id="$InfoScreenAction9" typeid="MIDP:$InfoScreenAction" uid="93">
+            <Property name="actionType" value="1"/>
+            <Property name="targetDisplayable"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource"/>
+            <Property name="actionOrigin" value="bekletmeEkraniHayirSonraki"/>
+        </DesignComponent>
+        <DesignComponent id="$InfoScreenAction10" typeid="MIDP:$InfoScreenAction" uid="94">
+            <Property name="actionType" value="2"/>
+            <Property name="targetDisplayable" value="hata"/>
+            <Property name="targetForwardDisplayable" value="bekletmeEkraniHayirSonraki"/>
+            <Property name="actionSource"/>
+            <Property name="actionOrigin" value="bekletmeEkraniHayirSonraki"/>
+        </DesignComponent>
+        <DesignComponent id="hataGondermeFormu" typeid="MIDP:javax.microedition.lcdui.Form" uid="95">
+            <Property name="title" value="STRING:Hata gonderimi"/>
+            <ContainerProperty name="commands">
+                <ContainerPropertyItem value="$CommandAction4"/>
+            </ContainerProperty>
+            <ContainerProperty name="items">
+                <ContainerPropertyItem value="hataAciklama"/>
+                <ContainerPropertyItem value="lblSoru1"/>
+                <ContainerPropertyItem value="lblNot1"/>
+            </ContainerProperty>
+        </DesignComponent>
+        <DesignComponent id="hataAciklama" typeid="MIDP:javax.microedition.lcdui.TextField" uid="96">
+            <Property name="label" value="STRING:Hata hakkinda ayrintili bilgi yaziniz:"/>
+            <Property name="string" value="STRING:"/>
+            <Property name="maxSize" value="500"/>
+            <ContainerProperty name="commands"/>
+        </DesignComponent>
+        <DesignComponent id="okCommand7" typeid="MIDP:javax.microedition.lcdui.Command" uid="97">
+            <Property name="label" value="STRING:Ok"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="OK"/>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction4" typeid="MIDP:CommandAction" uid="98">
+            <Property name="targetDisplayable" value="bekletmeEkraniGonderim"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="okCommand7"/>
+            <Property name="actionOrigin" value="hataGondermeFormu"/>
+        </DesignComponent>
+        <DesignComponent id="bekletmeEkraniGonderim" typeid="MIDP-2:org.netbeans.microedition.lcdui.WaitScreen" uid="99">
+            <Property name="failureAction" value="$InfoScreenAction12"/>
+            <Property name="nextDisplayableAction" value="$InfoScreenAction11"/>
+            <Property name="title" value="STRING:Hata gonderiliyor, lutfen bekleyiniz..."/>
+            <ContainerProperty name="commands"/>
+        </DesignComponent>
+        <DesignComponent id="$InfoScreenAction11" typeid="MIDP:$InfoScreenAction" uid="100">
+            <Property name="actionType" value="1"/>
+            <Property name="targetDisplayable" value="hataGondermeSonuc"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource"/>
+            <Property name="actionOrigin" value="bekletmeEkraniGonderim"/>
+        </DesignComponent>
+        <DesignComponent id="$InfoScreenAction12" typeid="MIDP:$InfoScreenAction" uid="101">
+            <Property name="actionType" value="2"/>
+            <Property name="targetDisplayable" value="hata"/>
+            <Property name="targetForwardDisplayable" value="bekletmeEkraniGonderim"/>
+            <Property name="actionSource"/>
+            <Property name="actionOrigin" value="bekletmeEkraniGonderim"/>
+        </DesignComponent>
+        <DesignComponent id="lblSoru1" typeid="MIDP:javax.microedition.lcdui.StringItem" uid="111">
+            <Property name="label" value="STRING:"/>
+            <Property name="text" value="STRING:"/>
+            <ContainerProperty name="commands"/>
+        </DesignComponent>
+        <DesignComponent id="lblNot1" typeid="MIDP:javax.microedition.lcdui.StringItem" uid="112">
+            <Property name="label" value="STRING:"/>
+            <Property name="text" value="STRING:"/>
+            <ContainerProperty name="commands"/>
+        </DesignComponent>
+        <DesignComponent id="hataGondermeSonuc" typeid="MIDP:javax.microedition.lcdui.Form" uid="113">
+            <ContainerProperty name="commands">
+                <ContainerPropertyItem value="$CommandAction13"/>
+            </ContainerProperty>
+            <ContainerProperty name="items">
+                <ContainerPropertyItem value="hataGondermeSonuc1"/>
+            </ContainerProperty>
+        </DesignComponent>
+        <DesignComponent id="okCommand8" typeid="MIDP:javax.microedition.lcdui.Command" uid="114">
+            <Property name="label" value="STRING:Ok"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="OK"/>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction13" typeid="MIDP:CommandAction" uid="115">
+            <Property name="targetDisplayable" value="islemListesi"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="okCommand8"/>
+            <Property name="actionOrigin" value="hataGondermeSonuc"/>
+        </DesignComponent>
+        <DesignComponent id="hataGondermeSonuc1" typeid="MIDP:javax.microedition.lcdui.StringItem" uid="116">
+            <Property name="label" value="STRING:"/>
+            <Property name="text" value="STRING:"/>
+            <ContainerProperty name="commands"/>
+        </DesignComponent>
+        <DesignComponent id="bekletmeEkraniGiris" typeid="MIDP-2:org.netbeans.microedition.lcdui.WaitScreen" uid="122">
+            <Property name="failureAction" value="$InfoScreenAction14"/>
+            <Property name="nextDisplayableAction" value="$InfoScreenAction13"/>
+            <ContainerProperty name="commands"/>
+        </DesignComponent>
+        <DesignComponent id="$InfoScreenAction13" typeid="MIDP:$InfoScreenAction" uid="123">
+            <Property name="actionType" value="1"/>
+            <Property name="targetDisplayable"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource"/>
+            <Property name="actionOrigin" value="bekletmeEkraniGiris"/>
+        </DesignComponent>
+        <DesignComponent id="$InfoScreenAction14" typeid="MIDP:$InfoScreenAction" uid="124">
+            <Property name="actionType" value="2"/>
+            <Property name="targetDisplayable" value="hata"/>
+            <Property name="targetForwardDisplayable" value="bekletmeEkraniGiris"/>
+            <Property name="actionSource"/>
+            <Property name="actionOrigin" value="bekletmeEkraniGiris"/>
+        </DesignComponent>
+        <DesignComponent id="girisFormu" typeid="MIDP:javax.microedition.lcdui.Form" uid="125">
+            <ContainerProperty name="commands">
+                <ContainerPropertyItem value="$CommandAction14"/>
+                <ContainerPropertyItem value="$CommandAction15"/>
+            </ContainerProperty>
+            <ContainerProperty name="items">
+                <ContainerPropertyItem value="txtIsim"/>
+                <ContainerPropertyItem value="txtSifre"/>
+            </ContainerProperty>
+        </DesignComponent>
+        <DesignComponent id="okCommand9" typeid="MIDP:javax.microedition.lcdui.Command" uid="126">
+            <Property name="label" value="STRING:Ok"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="OK"/>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction14" typeid="MIDP:CommandAction" uid="127">
+            <Property name="targetDisplayable" value="bekletmeEkraniGiris"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="okCommand9"/>
+            <Property name="actionOrigin" value="girisFormu"/>
+        </DesignComponent>
+        <DesignComponent id="txtIsim" typeid="MIDP:javax.microedition.lcdui.TextField" uid="131">
+            <Property name="label" value="STRING:Kullan\u0131c\u0131 ismi:"/>
+            <Property name="string" value="STRING:"/>
+            <Property name="maxSize" value="20"/>
+            <ContainerProperty name="commands"/>
+        </DesignComponent>
+        <DesignComponent id="txtSifre" typeid="MIDP:javax.microedition.lcdui.TextField" uid="132">
+            <Property name="label" value="STRING:\u015Eifre"/>
+            <Property name="string" value="STRING:"/>
+            <Property name="maxSize" value="10"/>
+            <Property name="constraints" value="65536"/>
+            <ContainerProperty name="commands"/>
+        </DesignComponent>
+        <DesignComponent id="exitCommand3" typeid="MIDP:javax.microedition.lcdui.Command" uid="133">
+            <Property name="label" value="STRING:Exit"/>
+            <Property name="priority" value="1"/>
+            <Property name="type" value="EXIT"/>
+        </DesignComponent>
+        <DesignComponent id="$CommandAction15" typeid="MIDP:CommandAction" uid="134">
+            <Property name="targetDisplayable" value="$MobileDevice"/>
+            <Property name="targetForwardDisplayable"/>
+            <Property name="actionSource" value="exitCommand3"/>
+            <Property name="actionOrigin" value="girisFormu"/>
+        </DesignComponent>
+    </DesignDocument>
+    <FlowDocument version="1.1">
+        <Node id="$MobileDevice" location="160,352" order=",$StartPoint,,,,,,,,,$ExitPoint,,,,,"/>
+        <Node id="bekletmeEkraniListe" location="944,232" order="$InfoScreenAction1$ActionFlowPort$1,$InfoScreenAction2$ActionFlowPort$2,,,,,,,,,$Default,,,,,"/>
+        <Node id="hata" location="1208,976" order="$InfoScreenAction12$Output,$InfoScreenAction14$Input,$InfoScreenAction14$Output,,$InfoScreenAction2$Output,$InfoScreenAction2$Input,$InfoScreenAction4$Input,$InfoScreenAction4$Output,$InfoScreenAction6$Input,$InfoScreenAction6$Output,$Default,$InfoScreenAction10$Input,$InfoScreenAction10$Output,$InfoScreenAction8$Input,$InfoScreenAction8$Output,$InfoScreenAction12$Input"/>
+        <Node id="cozulmemisHataSayisi" location="696,352" order="$CommandAction5,$CommandAction6,,,,,,,,,$Default,,,,,"/>
+        <Node id="hataGonder" location="696,536" order="$CommandAction7,$CommandAction8,,,,,,,,,$Default,,,,,"/>
+        <Node id="bekletmeEkraniHataSayisi" location="944,368" order="$InfoScreenAction3$ActionFlowPort$1,$InfoScreenAction4$ActionFlowPort$2,,,,,,,,,$Default,,,,,"/>
+        <Node id="bekletmeEkraniIlkSoru" location="928,536" order="$InfoScreenAction5$ActionFlowPort$1,$InfoScreenAction6$ActionFlowPort$2,,,,,,,,,$Default,,,,,"/>
+        <Node id="hataSayisiSonuc" location="1176,384" order="$CommandAction10,,,,,,,,,,$Default,,,,,"/>
+        <Node id="soruGoster" location="1176,552" order="$CommandAction11,$CommandAction12,$CommandAction2,,,,,,,,$Default,,,,,"/>
+        <Node id="projeler" location="1168,248" order="$CommandAction1,,,,,,,,,,$Default,,,,,"/>
+        <Node id="bekletmeEkraniEvetSonraki" location="1488,656" order="$InfoScreenAction7$ActionFlowPort$1,$InfoScreenAction8$ActionFlowPort$2,,,,,,,,,$Default,,,,,"/>
+        <Node id="bekletmeEkraniHayirSonraki" location="1488,552" order="$InfoScreenAction9$ActionFlowPort$1,$InfoScreenAction10$ActionFlowPort$2,,,,,,,,,$Default,,,,,"/>
+        <Node id="hataGondermeFormu" location="1752,760" order="$CommandAction4,,,,,,,,,,$Default,,,,,"/>
+        <Node id="bekletmeEkraniGonderim" location="1920,632" order="$InfoScreenAction11$ActionFlowPort$1,$InfoScreenAction12$ActionFlowPort$2,,,,,,,,,$Default,,,,,"/>
+        <Node id="hataGondermeSonuc" location="2192,648" order="$CommandAction13,,,,,,,,,,$Default,,,,,"/>
+        <Node id="bekletmeEkraniGiris" location="392,104" order="$InfoScreenAction13$ActionFlowPort$1,$InfoScreenAction14$ActionFlowPort$2,,,,,,,,,$Default,,,,,"/>
+        <Node id="girisFormu" location="192,88" order="$CommandAction14,$CommandAction15,,,,,,,,,$Default,,,,,"/>
+        <Node id="islemListesi" location="384,352" order="$SelectCaseCommandAction1,$SelectCaseCommandAction2,$SelectCaseCommandAction3,$CommandAction3,,,,,,,$Default,,,,,"/>
+        <Link id="$StartPoint$ActionLink" path="200,328,281,328,281,190,125,190,125,64,152,64"/>
+        <Link id="$SelectCaseCommandAction1$ActionLink" path="424,344,595,344,595,208,904,208"/>
+        <Link id="$SelectCaseCommandAction2$ActionLink" path="424,328,656,328"/>
+        <Link id="$SelectCaseCommandAction3$ActionLink" path="424,312,582,312,582,512,656,512"/>
+        <Link id="$CommandAction3$ActionLink" path="424,296,583,296,583,272,47,272,47,328,120,328"/>
+        <Link id="$InfoScreenAction1$ActionLink" path="984,224,1128,224"/>
+        <Link id="$InfoScreenAction2$ActionLink" path="984,208,1091,208,1091,607,1216,607,1216,904"/>
+        <Link id="$CommandAction5$ActionLink" path="736,344,904,344"/>
+        <Link id="$CommandAction6$ActionLink" path="736,328,806,328,806,260,305,260,305,328,344,328"/>
+        <Link id="$CommandAction7$ActionLink" path="736,528,797,528,797,422,305,422,305,328,344,328"/>
+        <Link id="$CommandAction8$ActionLink" path="736,512,888,512"/>
+        <Link id="$InfoScreenAction3$ActionLink" path="984,360,1136,360"/>
+        <Link id="$InfoScreenAction4$ActionLink" path="984,344,1070,344,1070,716,1200,716,1200,904"/>
+        <Link id="$InfoScreenAction5$ActionLink" path="968,528,1136,528"/>
+        <Link id="$InfoScreenAction6$ActionLink" path="968,512,1078,512,1078,920,1168,920"/>
+        <Link id="$CommandAction10$ActionLink" path="1216,376,1285,376,1285,438,305,438,305,328,344,328"/>
+        <Link id="$CommandAction11$ActionLink" path="1216,544,1282,544,1282,632,1448,632"/>
+        <Link id="$CommandAction12$ActionLink" path="1216,528,1448,528"/>
+        <Link id="$CommandAction1$ActionLink" path="1208,240,1278,240,1278,150,305,150,305,328,344,328"/>
+        <Link id="$CommandAction2$ActionLink" path="1216,512,1288,512,1288,438,305,438,305,328,344,328"/>
+        <Link id="$InfoScreenAction8$ActionLink" path="1528,632,1618,632,1618,1096,1200,1096,1200,1005"/>
+        <Link id="$InfoScreenAction10$ActionLink" path="1528,528,1626,528,1626,698,1098,698,1098,968,1168,968"/>
+        <Link id="$CommandAction4$ActionLink" path="1792,752,1954,752,1954,674,1719,674,1719,608,1880,608"/>
+        <Link id="$InfoScreenAction11$ActionLink" path="1960,624,2152,624"/>
+        <Link id="$InfoScreenAction12$ActionLink" path="1960,608,2071,608,2071,1060,1232,1060,1232,1005"/>
+        <Link id="$CommandAction13$ActionLink" path="2232,640,2289,640,2289,438,305,438,305,328,344,328"/>
+        <Link id="$InfoScreenAction14$ActionLink" path="432,80,1322,80,1322,952,1248,952"/>
+        <Link id="$CommandAction14$ActionLink" path="232,80,352,80"/>
+        <Link id="$CommandAction15$ActionLink" path="232,64,271,64,271,151,47,151,47,328,120,328"/>
+        <Link id="$InfoScreenAction2$ForwardLink" path="1232,904,1232,592,305,592,305,328,344,328"/>
+        <Link id="$InfoScreenAction4$ForwardLink" path="1184,904,1184,592,305,592,305,328,344,328"/>
+        <Link id="$InfoScreenAction6$ForwardLink" path="1168,936,305,936,305,328,344,328"/>
+        <Link id="$InfoScreenAction8$ForwardLink" path="1216,1005,1216,1072,1331,1072,1331,632,1448,632"/>
+        <Link id="$InfoScreenAction10$ForwardLink" path="1184,1005,1184,1084,1314,1084,1314,528,1448,528"/>
+        <Link id="$InfoScreenAction12$ForwardLink" path="1248,968,1639,968,1639,608,1880,608"/>
+        <Link id="$InfoScreenAction14$ForwardLink" path="1248,936,1347,936,1347,137,281,137,281,80,352,80"/>
+    </FlowDocument>
+</MVDData>

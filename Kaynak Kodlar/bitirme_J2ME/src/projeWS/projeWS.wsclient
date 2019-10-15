@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsclientconfig serviceType="jsr-172" version="1.0">
+    <client>
+        <project>MobileApplication1</project>
+        <class location="${src.dir}" type="projeWS.projeWS"/>
+        <property name="cldc11" value="true"/>
+    </client>
+    <services>
+        <service file="projeWS.asmx.wsdl" url="http://160.75.96.32/1/webServices/projeWS.asmx?WSDL"/>
+    </services>
+</wsclientconfig>
